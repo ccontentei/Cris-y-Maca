@@ -51,7 +51,7 @@
   .nav-links{display:flex;gap:1.8rem;list-style:none}
   .nav-links a{color:var(--ink);text-decoration:none;font-size:.82rem;letter-spacing:.15em;text-transform:uppercase;transition:color .35s}
   .nav-links a:hover{color:var(--gold)}
-  @media(max-width:720px){.nav-links{display:none}}
+  @media(max-width:720px){.nav-links{display:none}.nav-hamburger{display:flex;flex-direction:column;gap:5px;cursor:pointer;padding:8px;z-index:1001;background:none;border:none;color:inherit}.nav-hamburger span{display:block;width:24px;height:2px;background:currentColor;border-radius:2px}.nav-mobile{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(248,246,241,.97);z-index:1000;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}.nav-mobile.open{display:flex}.nav-mobile a{color:var(--ink);text-decoration:none;font-size:1.1rem;letter-spacing:.15em;text-transform:uppercase}.nav-mobile-close{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--ink)}.hero-frame{inset:.5rem}body,html{overflow-x:hidden}}
 
   /* HERO clickeable */
   .hero-link{
@@ -2177,6 +2177,17 @@
     <li><a href="#rsvp">RSVP</a></li>
   </ul>
 </nav>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+<div class="nav-mobile" id="navMobile">
+  <button class="nav-mobile-close" id="navClose">&#x2715;</button>
+  <a href="#dresscode" onclick="document.getElementById('navMobile').classList.remove('open')">Vestimenta</a>a>
+  <a href="#playlist" onclick="document.getElementById('navMobile').classList.remove('open')">Playlist</a>a>
+  <a href="#rsvp" onclick="document.getElementById('navMobile').classList.remove('open')">RSVP</a>a>
+</div>
+    <script>
+        document.getElementById('navHamburger').addEventListener('click',function(){document.getElementById('navMobile').classList.toggle('open');});
+document.getElementById('navClose').addEventListener('click',function(){document.getElementById('navMobile').classList.remove('open');});
+    </script>
 
 <!-- HERO clickeable hacia el RSVP -->
 <div class="hero-link" aria-label="Portada">
